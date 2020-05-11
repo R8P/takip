@@ -1,0 +1,35 @@
+<div class="container-fluid px-0">
+  <div class="row">
+    <div class="col-md-12">
+      <nav class="navbar navbar-expand-sm bg-danger navbar-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="/">Labirent Araç Takip Sistemi</a>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <!-- Links -->
+    <ul class="navbar-nav">
+      {{#unless displayLink}}
+      <li class="nav-item">
+        <a class="nav-link active" href="/users/login">Giriş</a>
+      </li>
+      {{/unless}}
+      <li class="nav-item active">
+        <a class="nav-link" href="/admin/users">ADMIN</a>
+      </li>
+      {{#if displayLink}}
+      <li class="nav-item active">
+        <a class="nav-link" href="/records/new">Ekle</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/users/logout">Çıkış</a>
+      </li>
+      {{/if}}
+    </ul>
+  </div>
+</nav>
+    </div>
+  </div>
+</div>

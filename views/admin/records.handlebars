@@ -1,0 +1,73 @@
+{{>admin-navbars}}
+{{!-- ADMIN/records nav bar --}}
+{{!-- <ul class="nav nav-tabs bg-primary">
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
+        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ANKARA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          {{#each vehicles}}
+          <a class="dropdown-item" href="/records/{{_id}}">{{plate}}</a>
+          {{/each}}
+        </div>
+      </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
+        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          İSTANBUL
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">ABC</a>
+          <a class="dropdown-item" href="#">QWE</a>
+        </div>
+      </li>
+</ul> --}}
+   
+    <div class="container-flex">
+        <div class="table-responsive">
+        <table id="myTable" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr> 
+                   <th>Tarih</th>
+                    <th>Baş.S.</th>
+                    <th>Baş.KM</th>
+                    <th>Baş</th>
+                    <th>Varş</th>
+                    <th>Var.S.</th>
+                    <th>Var.KM</th>
+                    <th>Arç</th>
+                    <th>Şfr</th>
+                    <th>Şehir</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each records}}
+                <tr>
+                  <td>{{date}}</td>
+                  <td id="time">{{initialTime}}</td>
+                    <td id="km">{{initialKm}}</td>
+                    <td id="location">{{from}}</td>
+                    <td id="location">{{destination}}</td>
+                    <td id="time">{{arrivalTime}}</td>
+                    <td id="km">{{arrivalKm}}</td>
+                    <td id="plate">{{plateNo.plate}}</td>
+                    <td id="driver">{{driver.username}}</td>
+                    <td id="city">{{city.name}}</td>
+                    <td>
+                        <form action="/admin/records/{{id}}?_method=DELETE" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn btn-danger">SİL</button>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+    
+
+   

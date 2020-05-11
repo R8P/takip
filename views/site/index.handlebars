@@ -1,0 +1,53 @@
+<ul class="nav nav-tabs bg-dark">
+    <li class="nav-item">
+        {{#each vehicles}}
+        <a class="nav-link" style="display:inline-block; text-transform:uppercase;" 
+        href="/records/plateNo/{{_id}}">{{plate}}<span>({{num_of_posts}})</span></a>
+        {{/each}}
+    </li>
+</ul>
+
+
+<div class="table-responsive">
+    <table id="myTable" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th scope="col">Baş.S.</th>
+                <th scope="col">Baş.KM</th>
+                <th scope="col">Baş</th>
+                <th scope="col">Varş</th>
+                <th scope="col">Var.S.</th>
+                <th scope="col">Var.KM</th>
+                <th scope="col">Tarih</th>
+                <th scope="col">Arç</th>
+                <th scope="col">Şfr</th>
+                <th scope="col">Şehir</th>
+            </tr>
+        </thead>
+        <tbody id="recordTableBody">
+            {{#each records}}
+            <tr>
+                <td id="time">{{initialTime}}</td>
+                <td id="km">{{initialKm}}</td>
+                <td id="location">{{from}}</td>
+                <td id="location">{{destination}}</td>
+                <td id="time">{{arrivalTime}}</td>
+                <td id="km">{{arrivalKm}}</td>
+                <td>12.08.2020</td>
+                <td id="plate">{{plateNo.plate}}</td>
+                <td id="driver">{{driver.username}}</td>
+                <td id="city">{{city.name}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+
+<div class="col-sm-12 text-center">
+    {{#if displayLink}}
+    <a href="/records/new" class="btn btn-outline-danger btn-lg">Yeni Kayıt</a>
+    {{/if}}
+</div>
+
+</div>

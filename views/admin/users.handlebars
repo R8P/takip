@@ -1,0 +1,74 @@
+{{>admin-navbars}}
+<div class="col-md-4 offset-md-4">
+    <div class="card-body">
+        <h5 class="card-title text-center">KULLANICI EKLE</h5>
+        <form action="" method="POST">
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                <input type="text" name="username" required="required" class="form-control" placeholder="İsim">
+            </div>
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-at"></i></span>
+                </div>
+                <input type="email" name="email" required="required" class="form-control" placeholder="E-posta">
+            </div>
+       <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-city"></i></span>
+                </div>
+                <select class="form-control" name="city">
+                            {{#each cities}}
+                            <option value="{{id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+            </div>
+
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" name="password" required="required" class="form-control" placeholder="Şifre">
+                </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" name="btn" value="Kaydet" class="btn btn-outline-danger login_btn">
+                </div>
+
+        </form>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">İsim</th>
+                    <th scope="col">Eposta</th>
+                    <th scope="col">Şehir</th>
+                    <th scope="col">Şifre</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each users}}
+                <tr>
+                    <td id="username">{{username}}</td>
+                    <td>{{email}}</td>
+                    <td id="city">{{city.name}}</td>
+                    <td>{{password}}</td>
+                    <td>
+                        <form action="/admin/users/{{id}}?_method=DELETE" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn btn-danger">SİL</button>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
